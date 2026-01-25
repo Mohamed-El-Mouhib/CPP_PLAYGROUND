@@ -32,7 +32,6 @@ AlignConsecutiveShortCaseStatements:
   AcrossComments: true
   AlignCaseColons: true
 
-SpacesInParens: Custom
 SpacesInParensOptions:
   ExceptDoubleParentheses: true
   InConditionalStatements: true
