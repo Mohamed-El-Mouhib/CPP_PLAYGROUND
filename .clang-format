@@ -1,12 +1,15 @@
-IndentWidth:   4
+IndentWidth:   3
 IndentAccessModifiers: true
-BreakBeforeBraces: Linux
+BreakBeforeBraces: Allman
 SpacesInParentheses: true
 AlignAfterOpenBracket: true
 SpacesInSquareBrackets: true
 AlignArrayOfStructures: Right
 BreakBeforeTernaryOperators : true
 AlignOperands: AlignAfterOperator
+AllowShortFunctionsOnASingleLine: None
+BreakConstructorInitializers: BeforeColon
+ConstructorInitializerIndentWidth: 2
 
 AlignConsecutiveAssignments:
   Enabled: true
