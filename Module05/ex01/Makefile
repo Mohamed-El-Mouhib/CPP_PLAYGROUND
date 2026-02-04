@@ -1,5 +1,5 @@
 CXX      = c++
-SRC      = ./main.cpp ./Bureaucrat.cpp
+SRC      = ./main.cpp ./Bureaucrat.cpp ./Form.cpp
 OBJ      = $(SRC:%.c=%.o)
 CXXFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98
 NAME     = Bureaucrat

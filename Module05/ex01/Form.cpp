@@ -1,43 +1,87 @@
-#ifndef _FORM_HPP
-#define _FORM_HPP
-
+#include "Form.hpp"
 #include "Bureaucrat.hpp"
-#include <string>
+#include <iostream>
 
-class form
+static Grade GradeValidate( Grade grade )
 {
-   private:
-      std::string _name; // name
-      bool _IsSigned;    // A boolean indicating whether it is signed
-      Grade _reqGrade;   // required grade to signe
-      Grade _excGrade;   // required grade to execute it
+   if ( grade > 150 )
+      throw Form::GradeTooLowException();
+   else if ( grade < 1 )
+      throw Form::GradeTooHighException();
+   return grade;
+}
 
-   public:
-      form( void );
-      form( const form & );
-      form( const std::string &, Grade, Grade );
-      form &operator=( const form & );
-      ~form( void );
+Form::Form( void )
+  : _name( "default Form" ), _IsSigned( false ), _reqGrade( 150 ),
+    _excGrade( 1 )
+{
+}
 
-      void beSigned( void );
+Form::Form( const Form &other )
+  : _name( other._name ), _IsSigned( other._IsSigned ),
+    _reqGrade( other._reqGrade ), _excGrade( other._excGrade )
+{
+}
 
-      class GradeTooHighException : public std::exception
-      {
-            const char *what( void ) const throw()
-            {
-               return "bureaucrat's grade IS TOO HIGH !!";
-            }
-      };
+Form::Form( const std::string &name, Grade reqGrade, Grade excuteGrade )
+  : _name( name ), _IsSigned( false ), _reqGrade( GradeValidate( reqGrade ) ),
+    _excGrade( GradeValidate( excuteGrade ) )
+{
+}
 
-      class GradeTooLowException : public std::exception
-      {
-            const char *what( void ) const throw()
-            {
-               return "bureaucrat's grade IS TOO LOW !!";
-            }
-      };
-};
+Form &Form::operator=( const Form &other )
+{
+   if ( this != &other )
+   {
+      _name     = other._name;
+      _IsSigned = other._IsSigned;
+      _reqGrade = other._reqGrade;
+      _excGrade = other._excGrade;
+   }
 
-std::ostream &operator<<( std::ostream &out, const bureaucrat &c );
+   return *this;
+}
 
-#endif
+void Form::beSigned( const Bureaucrat &target )
+{
+   Grade targetGrade;
+
+   targetGrade = target.getGrade();
+   if ( targetGrade <= _reqGrade )
+   {
+      _IsSigned = true;
+      return;
+   }
+   throw Form::GradeTooLowException();
+}
+
+std::string Form::getName( void ) const
+{
+   return _name;
+}
+
+bool Form::isSigned( void ) const
+{
+   return _IsSigned;
+}
+
+Grade Form::getRequiredGrade( void ) const
+{
+   return _reqGrade;
+}
+
+Grade Form::getExecuteGrade( void ) const
+{
+   return _excGrade;
+}
+
+std::ostream &operator<<( std::ostream &out, const Form &c )
+{
+   out << "Form: " << c.getName() << " require grade " << c.getRequiredGrade()
+       << ", execute grade " << c.getExecuteGrade();
+   return out;
+}
+
+Form::~Form( void )
+{
+}

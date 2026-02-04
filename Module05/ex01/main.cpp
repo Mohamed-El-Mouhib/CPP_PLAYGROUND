@@ -1,39 +1,20 @@
 #include "Bureaucrat.hpp"
-#include <exception>
-#include <iostream>
 
-int main( void )
+int main()
 {
-   bureaucrat c( "thomas", 1 );
    try
    {
-      bureaucrat a( "tom", 55 );
-      bureaucrat b( "albert", 150 );
-      bureaucrat d( c );
+      Bureaucrat bob( "Bob", 2 );
+      Form a( "A", 1, 1 );
 
-      std::cout << d << std::endl;
-      std::cout << b << std::endl;
-      std::cout << a << std::endl;
+      std::cout << bob;
+      bob.incGrade();
+      bob.signForm( a );
    }
-   catch ( std::exception &e )
+   catch ( const std::exception &e )
    {
-      std::cerr << e.what() << std::endl;
+      std::cout << e.what() << std::endl;
+      return 1;
    }
-
-   try
-   {
-      bureaucrat d( c );
-      d.incGrade();
-      std::cout << d << std::endl;
-      d.decGrade();
-      std::cout << d << std::endl;
-      d.decGrade();
-      std::cout << d << std::endl;
-      d.decGrade();
-      std::cout << d << std::endl;
-   }
-   catch ( std::exception &e )
-   {
-      std::cerr << e.what() << std::endl;
-   }
+   return 0;
 }
