@@ -1,7 +1,8 @@
-CXX     = c++
-SRC    = main.cpp Brain.cpp Animal.cpp Dog.cpp Cat.cpp
+CXX      = c++
+SRC      = ./main.cpp ./Bureaucrat.cpp
+OBJ      = $(SRC:%.c=%.o)
 CXXFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98
-NAME   = Animal
+NAME     = Bureaucrat
 
 all:	$(NAME)
 
