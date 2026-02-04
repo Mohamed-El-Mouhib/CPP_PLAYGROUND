@@ -9,7 +9,7 @@ Grade GradeValidate( Grade grade )
    return grade;
 }
 
-bureaucrat::bureaucrat( void ) : _name( "NO-NAME" ), _grade( 150 )
+bureaucrat::bureaucrat( void ) : _name( "default bureaucrat" ), _grade( 150 )
 {
 }
 
@@ -40,15 +40,13 @@ bureaucrat::~bureaucrat( void )
 void bureaucrat::incGrade( void )
 {
    _grade--;
-   if ( _grade < 1 )
-      throw bureaucrat::GradeTooHighException();
+   GradeValidate( _grade );
 }
 
 void bureaucrat::decGrade( void )
 {
    _grade++;
-   if ( _grade > 150 )
-      throw bureaucrat::GradeTooLowException();
+   GradeValidate( _grade );
 }
 
 std::string bureaucrat::getName( void ) const
