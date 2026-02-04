@@ -1,12 +1,10 @@
 #include "Bureaucrat.hpp"
-#include <exception>
-#include <iostream>
 
 int main( void )
 {
    try
    {
-      bureaucrat a( "thomas", 1 );
+      Bureaucrat a( "thomas", 1 );
       std::cout << a << std::endl;
    }
    catch ( std::exception &e )
@@ -16,7 +14,7 @@ int main( void )
 
    try
    {
-      bureaucrat a( "arthre", 1 );
+      Bureaucrat a( "arthre", 1 );
       std::cout << a.getName() << " ";
       a.incGrade();
       std::cout << a << std::endl;
@@ -28,9 +26,9 @@ int main( void )
 
    try
    {
-      bureaucrat a( "X Æ A-Xii", 149 );
+      Bureaucrat a( "X Æ A-Xii", 149 );
       a.decGrade();
-      bureaucrat b( a );
+      Bureaucrat b( a );
       std::cout << a.getName() << " ";
       b.decGrade();
    }

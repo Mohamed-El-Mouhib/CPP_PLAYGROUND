@@ -3,27 +3,27 @@
 Grade GradeValidate( Grade grade )
 {
    if ( grade > 150 )
-      throw bureaucrat::GradeTooLowException();
+      throw Bureaucrat::GradeTooLowException();
    else if ( grade < 1 )
-      throw bureaucrat::GradeTooHighException();
+      throw Bureaucrat::GradeTooHighException();
    return grade;
 }
 
-bureaucrat::bureaucrat( void ) : _name( "default bureaucrat" ), _grade( 150 )
+Bureaucrat::Bureaucrat( void ) : _name( "default Bureaucrat" ), _grade( 150 )
 {
 }
 
-bureaucrat::bureaucrat( const bureaucrat &other )
+Bureaucrat::Bureaucrat( const Bureaucrat &other )
   : _name( other._name ), _grade( GradeValidate( other._grade ) )
 {
 }
 
-bureaucrat::bureaucrat( const std::string &name, Grade grade )
+Bureaucrat::Bureaucrat( const std::string &name, Grade grade )
   : _name( name ), _grade( GradeValidate( grade ) )
 {
 }
 
-bureaucrat &bureaucrat::operator=( const bureaucrat &other )
+Bureaucrat &Bureaucrat::operator=( const Bureaucrat &other )
 {
    if ( this != &other )
    {
@@ -33,34 +33,34 @@ bureaucrat &bureaucrat::operator=( const bureaucrat &other )
    return *this;
 }
 
-bureaucrat::~bureaucrat( void )
+Bureaucrat::~Bureaucrat( void )
 {
 }
 
-void bureaucrat::incGrade( void )
+void Bureaucrat::incGrade( void )
 {
    _grade--;
    GradeValidate( _grade );
 }
 
-void bureaucrat::decGrade( void )
+void Bureaucrat::decGrade( void )
 {
    _grade++;
    GradeValidate( _grade );
 }
 
-std::string bureaucrat::getName( void ) const
+std::string Bureaucrat::getName( void ) const
 {
    return _name;
 }
 
-Grade bureaucrat::getGrade( void ) const
+Grade Bureaucrat::getGrade( void ) const
 {
    return _grade;
 }
 
-std::ostream &operator<<( std::ostream &out, const bureaucrat &c )
+std::ostream &operator<<( std::ostream &out, const Bureaucrat &c )
 {
-   out << c.getName() << ", bureaucrat grade " << c.getGrade() << ".";
+   out << c.getName() << ", Bureaucrat grade " << c.getGrade() << ".";
    return out;
 }

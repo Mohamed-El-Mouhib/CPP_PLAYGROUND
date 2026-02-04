@@ -8,24 +8,24 @@
 
 typedef int Grade;
 
-class bureaucrat
+class Bureaucrat
 {
    private:
       std::string _name;
       Grade _grade;
 
    public:
-      bureaucrat( void );
-      bureaucrat( const bureaucrat & );
-      bureaucrat( const std::string &, Grade );
-      bureaucrat &operator=( const bureaucrat & );
-      ~bureaucrat( void );
+      Bureaucrat( void );
+      Bureaucrat( const Bureaucrat & );
+      Bureaucrat( const std::string &, Grade );
+      Bureaucrat &operator=( const Bureaucrat & );
+      ~Bureaucrat( void );
 
       class GradeTooHighException : public std::exception
       {
             const char *what( void ) const throw()
             {
-               return "bureaucrat's grade IS TOO HIGH !!";
+               return "Bureaucrat's grade IS TOO HIGH !!";
             }
       };
 
@@ -33,7 +33,7 @@ class bureaucrat
       {
             const char *what( void ) const throw()
             {
-               return "bureaucrat's grade IS TOO LOW !!";
+               return "Bureaucrat's grade IS TOO LOW !!";
             }
       };
 
@@ -44,6 +44,6 @@ class bureaucrat
       void decGrade( void );
 };
 
-std::ostream &operator<<( std::ostream &out, const bureaucrat &c );
+std::ostream &operator<<( std::ostream &out, const Bureaucrat &c );
 
 #endif
