@@ -6,7 +6,7 @@ int main( void )
 {
    try
    {
-      bureaucrat a( "thomas", 130 );
+      bureaucrat a( "thomas", 1 );
       std::cout << a << std::endl;
    }
    catch ( std::exception &e )
