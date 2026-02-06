@@ -79,6 +79,10 @@ std::ostream &operator<<( std::ostream &out, const Form &c )
 {
    out << "Form: " << c.getName() << " require grade " << c.getRequiredGrade()
        << ", execute grade " << c.getExecuteGrade();
+   if ( c.isSigned() )
+      out << "signed";
+   else
+      out << "not signed yet";
    return out;
 }
 
