@@ -1,7 +1,8 @@
-CXX     = c++
-SRC    = main.cpp Brain.cpp Animal.cpp Dog.cpp Cat.cpp
+CXX      = c++
+SRC      = ./main.cpp ./Bureaucrat.cpp ./AForm.cpp ./ShrubberyCreationForm.cpp ./PresidentialPardonForm.cpp ./RobotomyRequestForm.cpp
+OBJ      = $(SRC:%.c=%.o)
 CXXFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98
-NAME   = Animal
+NAME     = Bureaucrat
 
 all:	$(NAME)
 
@@ -13,5 +14,8 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+
+cleanShrubbery:
+	rm *_shrubbery
 
 re: fclean all
