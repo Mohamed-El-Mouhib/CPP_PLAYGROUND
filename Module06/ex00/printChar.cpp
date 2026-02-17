@@ -4,7 +4,7 @@ void checkCharBoundariesAndPrint( long int value, bool hasNoLeft )
 {
    if ( !hasNoLeft || value > 255 )
       std::cout << "char: Impossible\n";
-   else if ( value >= 32 && value <= 127 )
+   else if ( value >= 32 && value < 127 )
       std::cout << "char: '" << static_cast<char>( value ) << "'\n";
    else
       std::cout << "char: Non displayable\n";
