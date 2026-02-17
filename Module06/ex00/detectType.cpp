@@ -58,9 +58,10 @@ InType whichType( std::string &str )
    {
       if ( !dots && !fInstance )
          return _INT;
-      if ( fInstance && dots )
+      if ( fInstance )
          return _FLOAT;
-      return _DOUBLE;
+      if ( dots )
+         return _DOUBLE;
    }
 
    return _NAVT;
