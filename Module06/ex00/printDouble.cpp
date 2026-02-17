@@ -1,3 +1,4 @@
+#include "Converter.hpp"
 #include "ScalarConverter.hpp"
 
 void checkDoubleBoundariesAndPrint( float value, bool hasNoLeft )
@@ -24,9 +25,9 @@ void printDouble( std::string &str, InType type )
       hasNoLeft = isEmptyStr( str.c_str() + endIter );
       checkDoubleBoundariesAndPrint( value, hasNoLeft );
    }
-   else if ( type == _DOUBLE )
+   else if ( type == _FLOAT )
    {
-      value     = strtof( str.c_str(), &endptr );
+      value     = strtod( str.c_str(), &endptr );
       hasNoLeft = isEmptyStr( endptr + 1 );
       checkDoubleBoundariesAndPrint( value, hasNoLeft );
    }
