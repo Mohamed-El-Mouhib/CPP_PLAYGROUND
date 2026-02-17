@@ -29,7 +29,8 @@ template <typename A> class Array
         : _size( n ),
           _arr( static_cast<A *>( operator new[]( sizeof( A ) * n ) ) )
       {
-         std::memset( _arr, 0, sizeof( A ) * n );
+         for ( size_t i = 0; i < n; ++i )
+            _arr[ i ] = A();
       }
 
       ~Array( void )
@@ -41,9 +42,11 @@ template <typename A> class Array
       {
          if ( this != &other )
          {
-            operator delete( _arr );
-            _arr = operator new[]( sizeof( A ) * other._size );
-            for ( size_t i = 0; i < other.size(); ++i )
+            operator delete[]( _arr );
+            _size = other._size;
+            _arr =
+                static_cast<A *>( operator new[]( sizeof( A ) * other._size ) );
+            for ( size_t i = 0; i < _size; ++i )
                _arr[ i ] = other._arr[ i ];
          }
 
