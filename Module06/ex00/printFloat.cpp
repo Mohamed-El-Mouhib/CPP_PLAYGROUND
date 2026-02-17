@@ -26,7 +26,7 @@ void printFloat( std::string &str, InType type )
    }
    else if ( type == _FLOAT )
    {
-      value     = strtof( str.c_str(), &endptr );
+      value     = strtod( str.c_str(), &endptr );
       hasNoLeft = isEmptyStr( endptr + 1 );
       checkFloatBoundariesAndPrint( value, hasNoLeft );
    }
