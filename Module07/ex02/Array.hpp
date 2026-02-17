@@ -17,8 +17,9 @@ template <typename A> class Array
       }
 
       Array( const Array &other )
-        : _size( other._size ), _arr( static_cast<int *>( operator new[](
-                                    sizeof( A ) * other.size() ) ) )
+        : _size( other._size ),
+          _arr(
+              static_cast<A *>( operator new[]( sizeof( A ) * other.size() ) ) )
       {
          for ( size_t i = 0; i < other.size(); ++i )
             _arr[ i ] = other._arr[ i ];
@@ -26,7 +27,7 @@ template <typename A> class Array
 
       Array( unsigned int n )
         : _size( n ),
-          _arr( static_cast<int *>( operator new[]( sizeof( A ) * n ) ) )
+          _arr( static_cast<A *>( operator new[]( sizeof( A ) * n ) ) )
       {
          std::memset( _arr, 0, sizeof( A ) * n );
       }
