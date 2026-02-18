@@ -23,15 +23,6 @@ class Span
       Span( const Span & );
 
       void addNumber( int );
-      void printNumbers( void )
-      {
-         std::cout << "_size: " << _size << std::endl;
-         for ( size_t i = 0; i < _size; ++i )
-         {
-            std::cout << "_arr[" << i << "]: " << _arr[ i ] << std::endl;
-         }
-         std::cout << std::endl;
-      }
       unsigned int shortestSpan( void ) const;
       unsigned int longestSpan( void ) const;
 
