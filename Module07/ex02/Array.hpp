@@ -61,6 +61,16 @@ template <typename A> class Array
          return _arr[ i ];
       }
 
+      /* important overloading if you're
+       * thinking as programmer not as 42-student */
+      const A &operator[]( const unsigned int i ) const
+      {
+         if ( i >= _size )
+            throw std::out_of_range( "out of bound index" );
+
+         return _arr[ i ];
+      }
+
       unsigned int size( void ) const
       {
          return _size;
