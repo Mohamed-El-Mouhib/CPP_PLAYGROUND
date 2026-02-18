@@ -1,8 +1,8 @@
 CXX      = c++
 SRC      = main.cpp Span.cpp
 OBJ      = $(SRC:%.c=%.o)
-CXXFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -g3
-NAME     = easyFind
+CXXFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98
+NAME     = Span
 
 all:	$(NAME)
 
