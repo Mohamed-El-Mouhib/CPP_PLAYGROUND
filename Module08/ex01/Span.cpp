@@ -13,7 +13,7 @@ Span::Span( unsigned int N )
 
 Span::Span( int *beginPtr, int *endPtr )
   : _size( 0 ), _capacity( static_cast<size_t>( endPtr - beginPtr ) ),
-    _arr( new int[ _size ]() )
+    _arr( new int[ _capacity ]() )
 {
    size_t i = 0;
 
