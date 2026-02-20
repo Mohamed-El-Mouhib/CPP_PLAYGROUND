@@ -23,6 +23,7 @@ class Span
       Span( const Span & );
 
       void addNumber( int );
+      void addNumber( int *, int * );
       unsigned int shortestSpan( void ) const;
       unsigned int longestSpan( void ) const;
 
