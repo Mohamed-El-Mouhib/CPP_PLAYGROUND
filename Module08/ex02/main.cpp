@@ -67,4 +67,33 @@ int main()
          ++it;
       }
    }
+   // MutantStack<int> mstack;
+   //
+   // mstack.push( 10 );
+   // mstack.push( 20 );
+   // mstack.push( 30 );
+   //
+   // std::cout << "Top element: " << mstack.top() << std::endl;
+   //
+   // mstack.pop();
+   //
+   // std::cout << "Size after pop: " << mstack.size() << std::endl;
+   //
+   // mstack.push( 40 );
+   // mstack.push( 50 );
+   //
+   // std::cout << "Stack elements:" << std::endl;
+   // for ( MutantStack<int>::iterator it = mstack.begin(); it != mstack.end();
+   //       ++it )
+   // {
+   //    std::cout << *it << std::endl;
+   // }
+   //
+   // MutantStack<int> copyStack( mstack );
+   // std::cout << "Copied stack elements:" << std::endl;
+   // for ( MutantStack<int>::iterator it = copyStack.begin();
+   //       it != copyStack.end(); ++it )
+   // {
+   //    std::cout << *it << std::endl;
+   // }
 }
