@@ -61,6 +61,24 @@ void Span::addNumber( int newElement )
    std::sort( _arr, _arr + _size );
 }
 
+void Span::addNumber( int *beginPtr, int *endPtr )
+{
+
+   if ( _capacity == 0 || _size >= _capacity )
+   {
+      std::string stErr( __func__ );
+      throw std::runtime_error( stErr + ": Span reach it's Capacity" );
+   }
+
+   for ( size_t i = _size; beginPtr < endPtr && _size < _capacity; ++beginPtr )
+   {
+      _arr[ i++ ] = *beginPtr;
+      _size++;
+   }
+
+   std::sort( _arr, _arr + _size );
+}
+
 unsigned int Span::shortestSpan( void ) const
 {
    int smalestSpan = 0;
