@@ -24,9 +24,9 @@ int main()
       std::cout << sp.longestSpan() << std::endl;
    }
    {
-      int _s[]        = { 13, 12, 11, 44, 55, 66 };
-      const Span damn = Span( _s, _s + ( sizeof( _s ) / sizeof( int ) ) );
-      const Span __( damn );
+      int _s[] = { 6, 3, 17, 9, 11 };
+      Span __  = Span( 5 );
+      __.addNumber( _s, _s + ( sizeof( _s ) ) );
 
       std::cout << __.shortestSpan() << std::endl;
       std::cout << __.longestSpan() << std::endl;
